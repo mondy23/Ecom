@@ -7,5 +7,6 @@ import (
 )
 
 func SetupRoutes(c *fiber.App) {
-	c.Get("/", controllers.Home)
+	c.Get("/", controllers.Products)
+	c.Get("/:id", controllers.Product)
 }

@@ -1,8 +1,19 @@
 package controllers
 
-import "github.com/gofiber/fiber/v2"
+import (
+	"ecom/pkg/config"
+	models "ecom/pkg/models/struct"
 
-func Home(c *fiber.Ctx) error {
+	"github.com/gofiber/fiber/v2"
+)
 
-	return c.SendString("Home")
+func Products(c *fiber.Ctx) error {
+	var product []models.Product
+	db := config.DBconn
+	db.Find(&product)
+	return c.JSON(product)
+}
+
+func Product(c *fiber.Ctx) error {
+	return nil
 }
