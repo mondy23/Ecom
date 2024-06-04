@@ -7,6 +7,13 @@ import (
 )
 
 func SetupRoutes(c *fiber.App) {
+	user := c.Group("/user")
+	user.Post("/login", controllers.Login)
+	user.Post("/register", controllers.Register)
+
 	c.Get("/", controllers.Products)
-	c.Get("/:id", controllers.Product)
+	c.Post("/:id", controllers.Product)
+
+	cart := c.Group("/cart")
+	cart.Get("/", controllers.ViewCart)
 }

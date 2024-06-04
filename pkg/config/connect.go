@@ -1,7 +1,6 @@
 package config
 
 import (
-	models "ecom/pkg/models/struct"
 	"log"
 
 	"gorm.io/driver/postgres"
@@ -19,5 +18,4 @@ func InitDB() {
 	if err != nil {
 		log.Panicln("Can't connect to database")
 	}
-	DBconn.AutoMigrate(&models.Product{})
 }
